@@ -19,18 +19,18 @@ class RecordsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show record" do
-    get record_url(@record), as: :json
+    get record(@record), as: :json
     assert_response :success
   end
 
   test "should update record" do
-    patch record_url(@record), params: { record: { artist_id: @record.artist_id, title: @record.title, user_id: @record.user_id, year: @record.year } }, as: :json
+    patch record(@record), params: { record: { artist_id: @record.artist_id, title: @record.title, user_id: @record.user_id, year: @record.year } }, as: :json
     assert_response 200
   end
 
   test "should destroy record" do
     assert_difference('Record.count', -1) do
-      delete record_url(@record), as: :json
+      delete record(@record), as: :json
     end
 
     assert_response 204
